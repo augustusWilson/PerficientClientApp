@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'contacts_list_widget.dart' show ContactsListWidget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class ContactsListModel extends FlutterFlowModel<ContactsListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
