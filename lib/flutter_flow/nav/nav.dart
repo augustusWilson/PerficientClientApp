@@ -1,19 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-import '/backend/schema/structs/index.dart';
-
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -38,40 +29,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => NavBarPage(),
+      errorBuilder: (context, state) => const HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => NavBarPage(),
+          builder: (context, _) => const HomePageWidget(),
         ),
         FFRoute(
-          name: 'ContactsList',
-          path: '/contactsList',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ContactsList')
-              : ContactsListWidget(),
-        ),
-        FFRoute(
-          name: 'CreateContact',
-          path: '/createContact',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'CreateContact')
-              : CreateContactWidget(),
-        ),
-        FFRoute(
-          name: 'EditContact',
-          path: '/editContact',
-          builder: (context, params) => EditContactWidget(
-            contactIndex: params.getParam('contactIndex', ParamType.int),
-          ),
-        ),
-        FFRoute(
-          name: 'UserProfile',
-          path: '/userProfile',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'UserProfile')
-              : UserProfileWidget(),
+          name: 'HomePage',
+          path: '/homePage',
+          builder: (context, params) => const HomePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -234,7 +202,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
