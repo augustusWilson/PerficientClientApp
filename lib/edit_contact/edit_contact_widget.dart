@@ -1,19 +1,17 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_contact_model.dart';
 export 'edit_contact_model.dart';
 
 class EditContactWidget extends StatefulWidget {
   const EditContactWidget({
-    Key? key,
+    super.key,
     required this.contactIndex,
-  }) : super(key: key);
+  });
 
   final int? contactIndex;
 
@@ -90,7 +88,7 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -103,9 +101,9 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: EdgeInsets.all(32.0),
+                      padding: const EdgeInsets.all(32.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,15 +113,15 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
-                            child: Container(
+                            child: SizedBox(
                               width: 370.0,
                               child: TextFormField(
                                 controller: _model.editNameInputController,
                                 focusNode: _model.editNameInputFocusNode,
                                 autofocus: true,
-                                autofillHints: [AutofillHints.name],
+                                autofillHints: const [AutofillHints.name],
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Name',
@@ -171,9 +169,9 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
-                            child: Container(
+                            child: SizedBox(
                               width: 370.0,
                               child: TextFormField(
                                 controller:
@@ -181,7 +179,7 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                                 focusNode:
                                     _model.editBussinessUnitInputFocusNode,
                                 autofocus: true,
-                                autofillHints: [AutofillHints.email],
+                                autofillHints: const [AutofillHints.email],
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Business Unit',
@@ -229,15 +227,15 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
-                            child: Container(
+                            child: SizedBox(
                               width: 370.0,
                               child: TextFormField(
                                 controller: _model.editTitleInputController,
                                 focusNode: _model.editTitleInputFocusNode,
                                 autofocus: true,
-                                autofillHints: [AutofillHints.email],
+                                autofillHints: const [AutofillHints.email],
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Title',
@@ -285,15 +283,15 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
-                            child: Container(
+                            child: SizedBox(
                               width: 370.0,
                               child: TextFormField(
                                 controller: _model.editLocationInputController,
                                 focusNode: _model.editLocationInputFocusNode,
                                 autofocus: true,
-                                autofillHints: [AutofillHints.name],
+                                autofillHints: const [AutofillHints.name],
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Location',
@@ -341,15 +339,15 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
-                            child: Container(
+                            child: SizedBox(
                               width: 370.0,
                               child: TextFormField(
                                 controller: _model.editNotesInputController,
                                 focusNode: _model.editNotesInputFocusNode,
                                 autofocus: true,
-                                autofillHints: [AutofillHints.name],
+                                autofillHints: const [AutofillHints.name],
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Notes',
@@ -397,7 +395,7 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -422,9 +420,9 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                               options: FFButtonOptions(
                                 width: 370.0,
                                 height: 44.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -434,7 +432,7 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                                       color: Colors.white,
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -443,7 +441,7 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -456,9 +454,9 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                               options: FFButtonOptions(
                                 width: 370.0,
                                 height: 44.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -468,7 +466,7 @@ class _EditContactWidgetState extends State<EditContactWidget> {
                                       color: Colors.white,
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

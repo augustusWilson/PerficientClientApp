@@ -1,16 +1,14 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'user_profile_model.dart';
 export 'user_profile_model.dart';
 
 class UserProfileWidget extends StatefulWidget {
-  const UserProfileWidget({Key? key}) : super(key: key);
+  const UserProfileWidget({super.key});
 
   @override
   _UserProfileWidgetState createState() => _UserProfileWidgetState();
@@ -85,7 +83,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -101,23 +99,23 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsets.all(32.0),
+                          padding: const EdgeInsets.all(32.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 370.0,
                                   child: TextFormField(
                                     controller: _model.nameInputController,
                                     focusNode: _model.nameInputFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.name],
+                                    autofillHints: const [AutofillHints.name],
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Name',
@@ -172,9 +170,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 370.0,
                                   child: TextFormField(
                                     controller:
@@ -182,7 +180,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                     focusNode:
                                         _model.bussinessUnitInputFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.email],
+                                    autofillHints: const [AutofillHints.email],
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Business Unit',
@@ -237,15 +235,15 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 370.0,
                                   child: TextFormField(
                                     controller: _model.titleInputController,
                                     focusNode: _model.titleInputFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.email],
+                                    autofillHints: const [AutofillHints.email],
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Title',
@@ -300,15 +298,15 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 370.0,
                                   child: TextFormField(
                                     controller: _model.locationInputController,
                                     focusNode: _model.locationInputFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.name],
+                                    autofillHints: const [AutofillHints.name],
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Location',
@@ -363,15 +361,15 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 370.0,
                                   child: TextFormField(
                                     controller: _model.emailInputController,
                                     focusNode: _model.emailInputFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.name],
+                                    autofillHints: const [AutofillHints.name],
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Email',
@@ -426,7 +424,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
@@ -450,9 +448,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                   options: FFButtonOptions(
                                     width: 370.0,
                                     height: 44.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -462,7 +460,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           color: Colors.white,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),

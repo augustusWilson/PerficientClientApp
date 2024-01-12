@@ -1,17 +1,15 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'contacts_list_model.dart';
 export 'contacts_list_model.dart';
 
 class ContactsListWidget extends StatefulWidget {
-  const ContactsListWidget({Key? key}) : super(key: key);
+  const ContactsListWidget({super.key});
 
   @override
   _ContactsListWidgetState createState() => _ContactsListWidgetState();
@@ -66,7 +64,7 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -89,7 +87,7 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                         itemBuilder: (context, contactsIndex) {
                           final contactsItem = contacts[contactsIndex];
                           return Padding(
-                            padding: EdgeInsets.all(5.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -146,9 +144,9 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                                   text: 'Edit',
                                   options: FFButtonOptions(
                                     height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -158,7 +156,7 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                                           color: Colors.white,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -174,7 +172,7 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         await launchUrl(Uri(
@@ -188,14 +186,14 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                                     '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
                                 .join('&')));
                       },
-                      text: 'Email Contact List',
+                      text: 'Email Contact List1\n',
                       options: FFButtonOptions(
                         width: 370.0,
                         height: 44.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -203,7 +201,7 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                                   color: Colors.white,
                                 ),
                         elevation: 3.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),

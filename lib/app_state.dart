@@ -55,50 +55,50 @@ class FFAppState extends ChangeNotifier {
 
   List<ContactStruct> _contacts = [];
   List<ContactStruct> get contacts => _contacts;
-  set contacts(List<ContactStruct> _value) {
-    _contacts = _value;
+  set contacts(List<ContactStruct> value) {
+    _contacts = value;
     prefs.setStringList(
-        'ff_contacts', _value.map((x) => x.serialize()).toList());
+        'ff_contacts', value.map((x) => x.serialize()).toList());
   }
 
-  void addToContacts(ContactStruct _value) {
-    _contacts.add(_value);
-    prefs.setStringList(
-        'ff_contacts', _contacts.map((x) => x.serialize()).toList());
-  }
-
-  void removeFromContacts(ContactStruct _value) {
-    _contacts.remove(_value);
+  void addToContacts(ContactStruct value) {
+    _contacts.add(value);
     prefs.setStringList(
         'ff_contacts', _contacts.map((x) => x.serialize()).toList());
   }
 
-  void removeAtIndexFromContacts(int _index) {
-    _contacts.removeAt(_index);
+  void removeFromContacts(ContactStruct value) {
+    _contacts.remove(value);
+    prefs.setStringList(
+        'ff_contacts', _contacts.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromContacts(int index) {
+    _contacts.removeAt(index);
     prefs.setStringList(
         'ff_contacts', _contacts.map((x) => x.serialize()).toList());
   }
 
   void updateContactsAtIndex(
-    int _index,
+    int index,
     ContactStruct Function(ContactStruct) updateFn,
   ) {
-    _contacts[_index] = updateFn(_contacts[_index]);
+    _contacts[index] = updateFn(_contacts[index]);
     prefs.setStringList(
         'ff_contacts', _contacts.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInContacts(int _index, ContactStruct _value) {
-    _contacts.insert(_index, _value);
+  void insertAtIndexInContacts(int index, ContactStruct value) {
+    _contacts.insert(index, value);
     prefs.setStringList(
         'ff_contacts', _contacts.map((x) => x.serialize()).toList());
   }
 
   UserStruct _userProfile = UserStruct();
   UserStruct get userProfile => _userProfile;
-  set userProfile(UserStruct _value) {
-    _userProfile = _value;
-    prefs.setString('ff_userProfile', _value.serialize());
+  set userProfile(UserStruct value) {
+    _userProfile = value;
+    prefs.setString('ff_userProfile', value.serialize());
   }
 
   void updateUserProfileStruct(Function(UserStruct) updateFn) {
