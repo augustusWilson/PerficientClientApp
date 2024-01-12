@@ -186,7 +186,7 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                                     '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
                                 .join('&')));
                       },
-                      text: 'Email Contact List1\n',
+                      text: 'Email Contact List\n',
                       options: FFButtonOptions(
                         width: 370.0,
                         height: 44.0,
