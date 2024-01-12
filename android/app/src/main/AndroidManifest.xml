@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mycompany.accelerateapp2aw"
+    package="com.perficient.accleratecontactsapp"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
-        android:label="AccelerateApp2AW"
+        android:label="Acclerate Contacts App"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="accelerateapp2aw" android:host="accelerateapp2aw.com" />
+                <data android:scheme="accleratecontactsapp" android:host="accleratecontactsapp.com" />
             </intent-filter>
 
         </activity>

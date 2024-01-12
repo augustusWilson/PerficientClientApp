@@ -1,4 +1,4 @@
-package com.mycompany.accelerateapp2aw
+package com.perficient.accleratecontactsapp
 
 import io.flutter.embedding.android.FlutterActivity
 

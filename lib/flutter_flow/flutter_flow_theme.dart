@@ -3,31 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
-
-const kThemeModeKey = '__theme_mode__';
-SharedPreferences? _prefs;
-
 abstract class FlutterFlowTheme {
-  static Future initialize() async =>
-      _prefs = await SharedPreferences.getInstance();
-  static ThemeMode get themeMode {
-    final darkMode = _prefs?.getBool(kThemeModeKey);
-    return darkMode == null
-        ? ThemeMode.system
-        : darkMode
-            ? ThemeMode.dark
-            : ThemeMode.light;
-  }
-
-  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
-      ? _prefs?.remove(kThemeModeKey)
-      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
-
   static FlutterFlowTheme of(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? DarkModeTheme()
-        : LightModeTheme();
+    return LightModeTheme();
   }
 
   @Deprecated('Use primary instead')
@@ -53,6 +31,24 @@ abstract class FlutterFlowTheme {
   late Color warning;
   late Color error;
   late Color info;
+
+  late Color perficientRed;
+  late Color lightGold;
+  late Color darkGold;
+  late Color lightRed;
+  late Color darkRed;
+  late Color gold;
+  late Color blueDark;
+  late Color blueLight;
+  late Color gray1;
+  late Color gray2;
+  late Color gray3;
+  late Color gray4;
+  late Color gray5;
+  late Color gray6;
+  late Color gray7;
+  late Color primaryBtnText;
+  late Color lineColor;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -125,22 +121,40 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF4B39EF);
-  late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFEE8B60);
-  late Color alternate = const Color(0xFFE0E3E7);
-  late Color primaryText = const Color(0xFF14181B);
-  late Color secondaryText = const Color(0xFF57636C);
-  late Color primaryBackground = const Color(0xFFF1F4F8);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0x4C4B39EF);
-  late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0x4DEE8B60);
-  late Color accent4 = const Color(0xCCFFFFFF);
-  late Color success = const Color(0xFF249689);
-  late Color warning = const Color(0xFFF9CF58);
-  late Color error = const Color(0xFFFF5963);
-  late Color info = const Color(0xFFFFFFFF);
+  late Color primary = const Color(0xFFCC1F20);
+  late Color secondary = const Color(0xFFC9B38D);
+  late Color tertiary = const Color(0xFF3D5D6F);
+  late Color alternate = const Color(0xFFD1D3D4);
+  late Color primaryText = const Color(0xFF222222);
+  late Color secondaryText = const Color(0xFF58595B);
+  late Color primaryBackground = const Color(0xFFE8E8E8);
+  late Color secondaryBackground = const Color(0xFF81A7BB);
+  late Color accent1 = const Color(0xFFE61717);
+  late Color accent2 = const Color(0xFF81A7BB);
+  late Color accent3 = const Color(0xFF8C734B);
+  late Color accent4 = const Color(0xFF8D0E11);
+  late Color success = const Color(0xFFB79967);
+  late Color warning = const Color(0xFF444444);
+  late Color error = const Color(0xFF8D0E11);
+  late Color info = const Color(0xFF81A7BB);
+
+  late Color perficientRed = const Color(0xFFCC1F20);
+  late Color lightGold = const Color(0xFFC9B38D);
+  late Color darkGold = const Color(0xFF8C734B);
+  late Color lightRed = const Color(0xFFE61717);
+  late Color darkRed = const Color(0xFF8D0E11);
+  late Color gold = const Color(0xFFB79967);
+  late Color blueDark = const Color(0xFF3D5D6F);
+  late Color blueLight = const Color(0xFF81A7BB);
+  late Color gray1 = const Color(0xFF222222);
+  late Color gray2 = const Color(0xFF444444);
+  late Color gray3 = const Color(0xFF58595B);
+  late Color gray4 = const Color(0xFF949494);
+  late Color gray5 = const Color(0xFFD1D3D4);
+  late Color gray6 = const Color(0xFFE8E8E8);
+  late Color gray7 = const Color(0xFFF8F8F8);
+  late Color primaryBtnText = const Color(0xFFFFFFFF);
+  late Color lineColor = const Color(0xFFE0E3E7);
 }
 
 abstract class Typography {
@@ -181,137 +195,111 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'Lato';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'Lato';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'Lato';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Outfit';
+  String get headlineLargeFamily => 'Lato';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Outfit';
+  String get headlineMediumFamily => 'Lato';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Outfit';
+  String get headlineSmallFamily => 'Lato';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Outfit';
+  String get titleLargeFamily => 'Lato';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Roboto Condensed';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Readex Pro';
+  String get titleSmallFamily => 'Roboto Condensed';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Readex Pro';
+  String get labelLargeFamily => 'Roboto Condensed';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Readex Pro';
+  String get labelMediumFamily => 'Roboto Condensed';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Readex Pro';
+  String get labelSmallFamily => 'Roboto Condensed';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
+  String get bodyLargeFamily => 'Roboto Condensed';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Roboto Condensed';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Roboto Condensed';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-}
-
-class DarkModeTheme extends FlutterFlowTheme {
-  @Deprecated('Use primary instead')
-  Color get primaryColor => primary;
-  @Deprecated('Use secondary instead')
-  Color get secondaryColor => secondary;
-  @Deprecated('Use tertiary instead')
-  Color get tertiaryColor => tertiary;
-
-  late Color primary = const Color(0xFF4B39EF);
-  late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFEE8B60);
-  late Color alternate = const Color(0xFF262D34);
-  late Color primaryText = const Color(0xFFFFFFFF);
-  late Color secondaryText = const Color(0xFF95A1AC);
-  late Color primaryBackground = const Color(0xFF1D2428);
-  late Color secondaryBackground = const Color(0xFF14181B);
-  late Color accent1 = const Color(0x4C4B39EF);
-  late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0x4DEE8B60);
-  late Color accent4 = const Color(0xB2262D34);
-  late Color success = const Color(0xFF249689);
-  late Color warning = const Color(0xFFF9CF58);
-  late Color error = const Color(0xFFFF5963);
-  late Color info = const Color(0xFFFFFFFF);
 }
 
 extension TextStyleHelper on TextStyle {
