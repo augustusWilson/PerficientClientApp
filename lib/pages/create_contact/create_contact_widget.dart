@@ -381,21 +381,8 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
                                 VCard vc = VCard(_model.newContactQRData);
                                 _model.titleInputController.text = vc.title!;
                                 _model.nameInputController.text = vc.name!.first;
-                                _model.locationInputController.text = vc.name!.first;
+                                _model.locationInputController.text = 'Atlanta';
                                 _model.bussinessUnitInputController.text = vc.organisation!;
-                                
-  print(vc.version); // 4.0
-  print(vc.formattedName); // Forrest Gump
-  print(vc.organisation); // Bubba Gump Shrimp Co.
-  print(vc.title); //Shrimp Man
-  print(vc.typedEmail); // [[forrestgump@example.com, [INTERNET]]]
-  print(vc
-      .typedTelephone); // [[+1-111-555-1212, [VOICE, WORK]], [+1-404-555-1212, [HOME, VOICE]]]
-  print(vc.name); //[Gump, Forrest, , Mr.,]
-  print(vc.gender); //M
-  print(vc
-      .typedAddress); // [[[100 Waters Edge, Baytown, LA 30314, United States of America], [WORK]], [[42 Plantation St., Baytown, LA 30314, United States of America], [HOME]]]
-  vc.print_lines(); // Will print all vcard lines without start and end tags
                                 setState(() {});
                               },
                               text: 'Scan Contact QR',
