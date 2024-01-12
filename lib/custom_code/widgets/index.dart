@@ -1,1 +1,1 @@
-export 'q_r_code.dart' show QRCode;
+export 'generate_q_r_code.dart' show GenerateQRCode;

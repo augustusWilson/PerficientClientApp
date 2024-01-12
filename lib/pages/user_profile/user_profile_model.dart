@@ -27,6 +27,10 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   FocusNode? emailInputFocusNode;
   TextEditingController? emailInputController;
   String? Function(BuildContext, String?)? emailInputControllerValidator;
+  // State field(s) for phone_input widget.
+  FocusNode? phoneInputFocusNode;
+  TextEditingController? phoneInputController;
+  String? Function(BuildContext, String?)? phoneInputControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -50,6 +54,9 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
 
     emailInputFocusNode?.dispose();
     emailInputController?.dispose();
+
+    phoneInputFocusNode?.dispose();
+    phoneInputController?.dispose();
   }
 
   /// Action blocks are added here.

@@ -12,11 +12,13 @@ class UserStruct extends BaseStruct {
     String? businessUnit,
     String? location,
     String? email,
+    String? phoneNumber,
   })  : _name = name,
         _title = title,
         _businessUnit = businessUnit,
         _location = location,
-        _email = email;
+        _email = email,
+        _phoneNumber = phoneNumber;
 
   // "name" field.
   String? _name;
@@ -48,12 +50,19 @@ class UserStruct extends BaseStruct {
   set email(String? val) => _email = val;
   bool hasEmail() => _email != null;
 
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  set phoneNumber(String? val) => _phoneNumber = val;
+  bool hasPhoneNumber() => _phoneNumber != null;
+
   static UserStruct fromMap(Map<String, dynamic> data) => UserStruct(
         name: data['name'] as String?,
         title: data['title'] as String?,
         businessUnit: data['businessUnit'] as String?,
         location: data['location'] as String?,
         email: data['email'] as String?,
+        phoneNumber: data['phone_number'] as String?,
       );
 
   static UserStruct? maybeFromMap(dynamic data) =>
@@ -65,6 +74,7 @@ class UserStruct extends BaseStruct {
         'businessUnit': _businessUnit,
         'location': _location,
         'email': _email,
+        'phone_number': _phoneNumber,
       }.withoutNulls;
 
   @override
@@ -87,6 +97,10 @@ class UserStruct extends BaseStruct {
         ),
         'email': serializeParam(
           _email,
+          ParamType.String,
+        ),
+        'phone_number': serializeParam(
+          _phoneNumber,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -118,6 +132,11 @@ class UserStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        phoneNumber: deserializeParam(
+          data['phone_number'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -130,12 +149,13 @@ class UserStruct extends BaseStruct {
         title == other.title &&
         businessUnit == other.businessUnit &&
         location == other.location &&
-        email == other.email;
+        email == other.email &&
+        phoneNumber == other.phoneNumber;
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([name, title, businessUnit, location, email]);
+  int get hashCode => const ListEquality()
+      .hash([name, title, businessUnit, location, email, phoneNumber]);
 }
 
 UserStruct createUserStruct({
@@ -144,6 +164,7 @@ UserStruct createUserStruct({
   String? businessUnit,
   String? location,
   String? email,
+  String? phoneNumber,
 }) =>
     UserStruct(
       name: name,
@@ -151,4 +172,5 @@ UserStruct createUserStruct({
       businessUnit: businessUnit,
       location: location,
       email: email,
+      phoneNumber: phoneNumber,
     );

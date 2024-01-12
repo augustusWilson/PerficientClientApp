@@ -105,6 +105,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'ContactsList': const ContactsListWidget(),
       'CreateContact': const CreateContactWidget(),
       'UserProfile': const UserProfileWidget(),
+      'ShareContactQRCode': const ShareContactQRCodeWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -145,6 +146,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Profile',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.connect_without_contact,
+              size: 24.0,
+            ),
+            label: 'Share',
             tooltip: '',
           )
         ],
