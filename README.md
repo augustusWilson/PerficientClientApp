@@ -1,4 +1,4 @@
-# Acclerate Contacts App
+# AccelerateApp2AW
 
 A new Flutter project.
 
