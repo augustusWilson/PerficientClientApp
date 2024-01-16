@@ -11,7 +11,6 @@ import 'create_contact_model.dart';
 import 'package:simple_vcard_parser/simple_vcard_parser.dart';
 export 'create_contact_model.dart';
 
-
 class CreateContactWidget extends StatefulWidget {
   const CreateContactWidget({Key? key}) : super(key: key);
 
@@ -31,6 +30,9 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
 
     _model.nameInputController ??= TextEditingController();
     _model.nameInputFocusNode ??= FocusNode();
+
+    _model.lastNameInputController ??= TextEditingController();
+    _model.lastNameInputFocusNode ??= FocusNode();
 
     _model.bussinessUnitInputController ??= TextEditingController();
     _model.bussinessUnitInputFocusNode ??= FocusNode();
@@ -94,7 +96,7 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: EdgeInsets.all(32.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +117,7 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
                                 autofillHints: [AutofillHints.name],
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Name',
+                                  labelText: 'First Name',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -154,6 +156,61 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                                 validator: _model.nameInputControllerValidator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          ),
+                             Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 16.0),
+                            child: Container(
+                              width: 370.0,
+                              child: TextFormField(
+                                controller: _model.lastNameInputController,
+                                focusNode: _model.lastNameInputFocusNode,
+                                autofocus: true,
+                                autofillHints: [AutofillHints.name],
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText: 'Last Name',
+                                  labelStyle:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                validator: _model.lastNameInputControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -330,16 +387,32 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                setState(() {
-                                  FFAppState().addToContacts(ContactStruct(
-                                    name: _model.nameInputController.text,
-                                    title: _model.titleInputController.text,
-                                    businessUnit: _model
-                                        .bussinessUnitInputController.text,
-                                    location:
-                                        _model.locationInputController.text,
-                                  ));
-                                });
+                                if (_model.nameInputController.text.trim().isEmpty || 
+                                    _model.lastNameInputController.text.trim().isEmpty ||
+                                    _model.bussinessUnitInputController.text.trim()
+                                        .isEmpty ||
+                                    _model.titleInputController.text.trim().isEmpty ||
+                                    _model
+                                        .locationInputController.text.trim().isEmpty) {
+                                  _showDialog("Error", "Pleaes scan QR code on badge or fill out contact form manually.");
+                                } else {
+                                  setState(() {
+                                    FFAppState().addToContacts(ContactStruct(
+                                      name: _model.nameInputController.text,
+                                      title: _model.titleInputController.text,
+                                      businessUnit: _model
+                                          .bussinessUnitInputController.text,
+                                      location:
+                                          _model.locationInputController.text,
+                                    ));
+                                    _showDialog("Success", "Contact added");
+                                    _model.nameInputController.text = "";
+                                    _model.lastNameInputController.text = "";
+                                    _model.titleInputController.text = "";
+                                    _model.bussinessUnitInputController.text = "";
+                                    _model.locationInputController.text = "";
+                                  });
+                                }
                               },
                               text: 'Create Contact',
                               options: FFButtonOptions(
@@ -372,30 +445,20 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
                               onPressed: () async {
                                 _model.newContactQRData =
                                     await FlutterBarcodeScanner.scanBarcode(
-                                  '#C62828', // scanning line color
+                                  '#00000000', // scanning line color
                                   'Cancel', // cancel button text
                                   true, // whether to show the flash icon
                                   ScanMode.QR,
                                 );
-                                //print(_model.newContactQRData);
                                 VCard vc = VCard(_model.newContactQRData);
                                 _model.titleInputController.text = vc.title!;
-                                _model.nameInputController.text = vc.name!.first;
-                                _model.locationInputController.text = vc.name!.first;
-                                _model.bussinessUnitInputController.text = vc.organisation!;
-                                
-  print(vc.version); // 4.0
-  print(vc.formattedName); // Forrest Gump
-  print(vc.organisation); // Bubba Gump Shrimp Co.
-  print(vc.title); //Shrimp Man
-  print(vc.typedEmail); // [[forrestgump@example.com, [INTERNET]]]
-  print(vc
-      .typedTelephone); // [[+1-111-555-1212, [VOICE, WORK]], [+1-404-555-1212, [HOME, VOICE]]]
-  print(vc.name); //[Gump, Forrest, , Mr.,]
-  print(vc.gender); //M
-  print(vc
-      .typedAddress); // [[[100 Waters Edge, Baytown, LA 30314, United States of America], [WORK]], [[42 Plantation St., Baytown, LA 30314, United States of America], [HOME]]]
-  vc.print_lines(); // Will print all vcard lines without start and end tags
+                                _model.nameInputController.text =
+                                    vc.name![1];
+                                _model.lastNameInputController.text = vc.name!.first;
+                                _model.locationInputController.text = "Atlanta";
+                                _model.bussinessUnitInputController.text =
+                                    vc.organisation!;
+                                 _showDialog("Success", "Badge Scanned");
                                 setState(() {});
                               },
                               text: 'Scan Contact QR',
@@ -432,6 +495,26 @@ class _CreateContactWidgetState extends State<CreateContactWidget> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showDialog(String title, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
