@@ -43,6 +43,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
     _model.emailInputController ??=
         TextEditingController(text: FFAppState().userProfile.email);
     _model.emailInputFocusNode ??= FocusNode();
+
+    _model.phoneInputController ??=
+        TextEditingController(text: FFAppState().userProfile.phoneNumber);
+    _model.phoneInputFocusNode ??= FocusNode();
   }
 
   @override
@@ -426,6 +430,69 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
+                                child: SizedBox(
+                                  width: 370.0,
+                                  child: TextFormField(
+                                    controller: _model.phoneInputController,
+                                    focusNode: _model.phoneInputFocusNode,
+                                    autofocus: true,
+                                    autofillHints: const [AutofillHints.name],
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Phone',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    validator: _model
+                                        .phoneInputControllerValidator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     setState(() {
@@ -440,7 +507,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           ..location = _model
                                               .locationInputController.text
                                           ..email =
-                                              _model.emailInputController.text,
+                                              _model.emailInputController.text
+                                          ..phoneNumber =
+                                              _model.phoneInputController.text,
                                       );
                                     });
                                   },
