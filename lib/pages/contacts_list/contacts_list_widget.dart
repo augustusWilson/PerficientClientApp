@@ -66,7 +66,26 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: [ IconButton(
+            icon: const Icon(Icons.email_outlined),
+            tooltip: 'Email Contact List',
+               onPressed: () async {
+                        await launchUrl(Uri(
+                            scheme: 'mailto',
+                            path: 'nicholas.mcgough@perficient.com',
+                            query: {
+                              'subject': 'Accelerate Contact List',
+                            }
+                                .entries
+                                .map((MapEntry<String, String> e) =>
+                                    '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                .join('&')));
+               }
+                      
+            //   ScaffoldMessenger.of(context).showSnackBar(
+            //       const SnackBar(content: Text('This is a snackbar')));
+            // },
+          ),],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -89,128 +108,112 @@ class _ContactsListWidgetState extends State<ContactsListWidget> {
                         itemBuilder: (context, contactsIndex) {
                           final contactsItem = contacts[contactsIndex];
                           return Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        contactsItem.name,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      Text(
-                                        contactsItem.businessUnit,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        contactsItem.title,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      Text(
-                                        contactsItem.location,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    context.pushNamed(
-                                      'EditContact',
-                                      queryParameters: {
-                                        'contactIndex': serializeParam(
-                                          0,
-                                          ParamType.int,
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                contactsItem.name,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                              Text(
+                                                contactsItem.businessUnit,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  text: 'Edit',
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Roboto Condensed',
-                                          color: Colors.white,
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                contactsItem.title,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                              Text(
+                                                contactsItem.location,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                        FFButtonWidget(
+                                          onPressed: () async {
+                                            context.pushNamed(
+                                              'EditContact',
+                                              queryParameters: {
+                                                'contactIndex': serializeParam(
+                                                  0,
+                                                  ParamType.int,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          text: 'Edit',
+                                          options: FFButtonOptions(
+                                            height: 32.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily:
+                                                          'Roboto Condensed',
+                                                      color: Colors.white,
+                                                    ),
+                                            //elevation: 3.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(2, 8, 2, 0),
+                                      child: Divider(
+                                        height: 1,
+                                        color: Colors.grey,
+                                      ),
+                                    )
+                                  ]));
+                          //)
                         },
                       );
                     },
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        await launchUrl(Uri(
-                            scheme: 'mailto',
-                            path: 'nicholas.mcgough@perficient.com',
-                            query: {
-                              'subject': 'Accelerate Contact List',
-                            }
-                                .entries
-                                .map((MapEntry<String, String> e) =>
-                                    '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
-                                .join('&')));
-                      },
-                      text: 'Email Contact List',
-                      options: FFButtonOptions(
-                        width: 370.0,
-                        height: 44.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Roboto Condensed',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                    ),
-                  ),
+                  SizedBox(height: 8)
                 ],
               ),
             ],
