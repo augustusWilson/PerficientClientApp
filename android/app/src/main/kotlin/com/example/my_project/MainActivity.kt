@@ -1,4 +1,4 @@
-package com.perficient.accleratecontactsapp
+package com.perficient.accelerate
 
 import io.flutter.embedding.android.FlutterActivity
 

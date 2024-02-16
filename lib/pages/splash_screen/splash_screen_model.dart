@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'share_contact_q_r_code_widget.dart' show ShareContactQRCodeWidget;
+import 'splash_screen_widget.dart' show SplashScreenWidget;
 import 'package:flutter/material.dart';
 
-class ShareContactQRCodeModel
-    extends FlutterFlowModel<ShareContactQRCodeWidget> {
+class SplashScreenModel extends FlutterFlowModel<SplashScreenWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

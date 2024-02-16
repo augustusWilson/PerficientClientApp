@@ -7,48 +7,80 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UserStruct extends BaseStruct {
   UserStruct({
-    String? name,
-    String? title,
-    String? businessUnit,
-    String? location,
+    String? firstName,
+    String? lastName,
+    String? position,
+    String? generalManager,
+    String? expeditureOrganization,
     String? email,
+    String? city,
+    String? state,
+    String? country,
     String? phoneNumber,
-  })  : _name = name,
-        _title = title,
-        _businessUnit = businessUnit,
-        _location = location,
+  })  : _firstName = firstName,
+        _lastName = lastName,
+        _position = position,
+        _generalManager = generalManager,
+        _expeditureOrganization = expeditureOrganization,
         _email = email,
+        _city = city,
+        _state = state,
+        _country = country,
         _phoneNumber = phoneNumber;
 
-  // "name" field.
-  String? _name;
-  String get name => _name ?? '';
-  set name(String? val) => _name = val;
-  bool hasName() => _name != null;
+  // "first_name" field.
+  String? _firstName;
+  String get firstName => _firstName ?? '';
+  set firstName(String? val) => _firstName = val;
+  bool hasFirstName() => _firstName != null;
 
-  // "title" field.
-  String? _title;
-  String get title => _title ?? '';
-  set title(String? val) => _title = val;
-  bool hasTitle() => _title != null;
+  // "last_name" field.
+  String? _lastName;
+  String get lastName => _lastName ?? '';
+  set lastName(String? val) => _lastName = val;
+  bool hasLastName() => _lastName != null;
 
-  // "businessUnit" field.
-  String? _businessUnit;
-  String get businessUnit => _businessUnit ?? '';
-  set businessUnit(String? val) => _businessUnit = val;
-  bool hasBusinessUnit() => _businessUnit != null;
+  // "position" field.
+  String? _position;
+  String get position => _position ?? '';
+  set position(String? val) => _position = val;
+  bool hasPosition() => _position != null;
 
-  // "location" field.
-  String? _location;
-  String get location => _location ?? '';
-  set location(String? val) => _location = val;
-  bool hasLocation() => _location != null;
+  // "general_manager" field.
+  String? _generalManager;
+  String get generalManager => _generalManager ?? '';
+  set generalManager(String? val) => _generalManager = val;
+  bool hasGeneralManager() => _generalManager != null;
+
+  // "expediture_organization" field.
+  String? _expeditureOrganization;
+  String get expeditureOrganization => _expeditureOrganization ?? '';
+  set expeditureOrganization(String? val) => _expeditureOrganization = val;
+  bool hasExpeditureOrganization() => _expeditureOrganization != null;
 
   // "email" field.
   String? _email;
   String get email => _email ?? '';
   set email(String? val) => _email = val;
   bool hasEmail() => _email != null;
+
+  // "city" field.
+  String? _city;
+  String get city => _city ?? '';
+  set city(String? val) => _city = val;
+  bool hasCity() => _city != null;
+
+  // "state" field.
+  String? _state;
+  String get state => _state ?? '';
+  set state(String? val) => _state = val;
+  bool hasState() => _state != null;
+
+  // "country" field.
+  String? _country;
+  String get country => _country ?? '';
+  set country(String? val) => _country = val;
+  bool hasCountry() => _country != null;
 
   // "phone_number" field.
   String? _phoneNumber;
@@ -57,11 +89,15 @@ class UserStruct extends BaseStruct {
   bool hasPhoneNumber() => _phoneNumber != null;
 
   static UserStruct fromMap(Map<String, dynamic> data) => UserStruct(
-        name: data['name'] as String?,
-        title: data['title'] as String?,
-        businessUnit: data['businessUnit'] as String?,
-        location: data['location'] as String?,
+        firstName: data['first_name'] as String?,
+        lastName: data['last_name'] as String?,
+        position: data['position'] as String?,
+        generalManager: data['general_manager'] as String?,
+        expeditureOrganization: data['expediture_organization'] as String?,
         email: data['email'] as String?,
+        city: data['city'] as String?,
+        state: data['state'] as String?,
+        country: data['country'] as String?,
         phoneNumber: data['phone_number'] as String?,
       );
 
@@ -69,34 +105,54 @@ class UserStruct extends BaseStruct {
       data is Map ? UserStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'name': _name,
-        'title': _title,
-        'businessUnit': _businessUnit,
-        'location': _location,
+        'first_name': _firstName,
+        'last_name': _lastName,
+        'position': _position,
+        'general_manager': _generalManager,
+        'expediture_organization': _expeditureOrganization,
         'email': _email,
+        'city': _city,
+        'state': _state,
+        'country': _country,
         'phone_number': _phoneNumber,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'name': serializeParam(
-          _name,
+        'first_name': serializeParam(
+          _firstName,
           ParamType.String,
         ),
-        'title': serializeParam(
-          _title,
+        'last_name': serializeParam(
+          _lastName,
           ParamType.String,
         ),
-        'businessUnit': serializeParam(
-          _businessUnit,
+        'position': serializeParam(
+          _position,
           ParamType.String,
         ),
-        'location': serializeParam(
-          _location,
+        'general_manager': serializeParam(
+          _generalManager,
+          ParamType.String,
+        ),
+        'expediture_organization': serializeParam(
+          _expeditureOrganization,
           ParamType.String,
         ),
         'email': serializeParam(
           _email,
+          ParamType.String,
+        ),
+        'city': serializeParam(
+          _city,
+          ParamType.String,
+        ),
+        'state': serializeParam(
+          _state,
+          ParamType.String,
+        ),
+        'country': serializeParam(
+          _country,
           ParamType.String,
         ),
         'phone_number': serializeParam(
@@ -107,28 +163,48 @@ class UserStruct extends BaseStruct {
 
   static UserStruct fromSerializableMap(Map<String, dynamic> data) =>
       UserStruct(
-        name: deserializeParam(
-          data['name'],
+        firstName: deserializeParam(
+          data['first_name'],
           ParamType.String,
           false,
         ),
-        title: deserializeParam(
-          data['title'],
+        lastName: deserializeParam(
+          data['last_name'],
           ParamType.String,
           false,
         ),
-        businessUnit: deserializeParam(
-          data['businessUnit'],
+        position: deserializeParam(
+          data['position'],
           ParamType.String,
           false,
         ),
-        location: deserializeParam(
-          data['location'],
+        generalManager: deserializeParam(
+          data['general_manager'],
+          ParamType.String,
+          false,
+        ),
+        expeditureOrganization: deserializeParam(
+          data['expediture_organization'],
           ParamType.String,
           false,
         ),
         email: deserializeParam(
           data['email'],
+          ParamType.String,
+          false,
+        ),
+        city: deserializeParam(
+          data['city'],
+          ParamType.String,
+          false,
+        ),
+        state: deserializeParam(
+          data['state'],
+          ParamType.String,
+          false,
+        ),
+        country: deserializeParam(
+          data['country'],
           ParamType.String,
           false,
         ),
@@ -145,32 +221,54 @@ class UserStruct extends BaseStruct {
   @override
   bool operator ==(Object other) {
     return other is UserStruct &&
-        name == other.name &&
-        title == other.title &&
-        businessUnit == other.businessUnit &&
-        location == other.location &&
+        firstName == other.firstName &&
+        lastName == other.lastName &&
+        position == other.position &&
+        generalManager == other.generalManager &&
+        expeditureOrganization == other.expeditureOrganization &&
         email == other.email &&
+        city == other.city &&
+        state == other.state &&
+        country == other.country &&
         phoneNumber == other.phoneNumber;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([name, title, businessUnit, location, email, phoneNumber]);
+  int get hashCode => const ListEquality().hash([
+        firstName,
+        lastName,
+        position,
+        generalManager,
+        expeditureOrganization,
+        email,
+        city,
+        state,
+        country,
+        phoneNumber
+      ]);
 }
 
 UserStruct createUserStruct({
-  String? name,
-  String? title,
-  String? businessUnit,
-  String? location,
+  String? firstName,
+  String? lastName,
+  String? position,
+  String? generalManager,
+  String? expeditureOrganization,
   String? email,
+  String? city,
+  String? state,
+  String? country,
   String? phoneNumber,
 }) =>
     UserStruct(
-      name: name,
-      title: title,
-      businessUnit: businessUnit,
-      location: location,
+      firstName: firstName,
+      lastName: lastName,
+      position: position,
+      generalManager: generalManager,
+      expeditureOrganization: expeditureOrganization,
       email: email,
+      city: city,
+      state: state,
+      country: country,
       phoneNumber: phoneNumber,
     );

@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -31,47 +30,61 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const NavBarPage(),
+      errorBuilder: (context, state) => const SplashScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const NavBarPage(),
+          builder: (context, _) => const SplashScreenWidget(),
         ),
         FFRoute(
           name: 'ContactsList',
           path: '/contactsList',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ContactsList')
-              : const ContactsListWidget(),
-        ),
-        FFRoute(
-          name: 'CreateContact',
-          path: '/createContact',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'CreateContact')
-              : const CreateContactWidget(),
-        ),
-        FFRoute(
-          name: 'EditContact',
-          path: '/editContact',
-          builder: (context, params) => EditContactWidget(
-            contactIndex: params.getParam('contactIndex', ParamType.int),
+          builder: (context, params) => ContactsListWidget(
+            attendeeID: params.getParam('attendeeID', ParamType.String),
           ),
         ),
         FFRoute(
-          name: 'UserProfile',
-          path: '/userProfile',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'UserProfile')
-              : const UserProfileWidget(),
+          name: 'HotelMap',
+          path: '/hotelMap',
+          builder: (context, params) => const HotelMapWidget(),
         ),
         FFRoute(
-          name: 'ShareContactQRCode',
-          path: '/shareContactQRCode',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ShareContactQRCode')
-              : const ShareContactQRCodeWidget(),
+          name: 'ShowRoomMap',
+          path: '/showRoomMap',
+          builder: (context, params) => const ShowRoomMapWidget(),
+        ),
+        FFRoute(
+          name: 'Itinerary',
+          path: '/itinerary',
+          builder: (context, params) => const ItineraryWidget(),
+        ),
+        FFRoute(
+          name: 'ContactScan',
+          path: '/contactScan',
+          builder: (context, params) => const ContactScanWidget(),
+        ),
+        FFRoute(
+          name: 'SplashScreen',
+          path: '/splashScreen',
+          builder: (context, params) => const SplashScreenWidget(),
+        ),
+        FFRoute(
+          name: 'ContactInfo',
+          path: '/contactInfo',
+          builder: (context, params) => ContactInfoWidget(
+            attendeeID: params.getParam('attendeeID', ParamType.String),
+            firstname: params.getParam('firstname', ParamType.String),
+            emailid: params.getParam('emailid', ParamType.String),
+            gm: params.getParam('gm', ParamType.String),
+            phoneno: params.getParam('phoneno', ParamType.String),
+            country: params.getParam('country', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'expandable',
+          path: '/expandable',
+          builder: (context, params) => const ExpandableWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

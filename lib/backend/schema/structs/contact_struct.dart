@@ -7,152 +7,247 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class ContactStruct extends BaseStruct {
   ContactStruct({
-    String? name,
-    String? title,
-    String? businessUnit,
-    String? location,
-    String? notes,
+    String? attendeeID,
+    String? firstName,
+    String? lastName,
+    String? position,
+    String? generalManager,
+    String? expeditureOrganization,
+    String? employeeEmail,
+    String? city,
+    String? state,
+    String? country,
     String? phoneNumber,
-    String? email,
-  })  : _name = name,
-        _title = title,
-        _businessUnit = businessUnit,
-        _location = location,
-        _notes = notes,
+    String? notes,
+  })  : _attendeeID = attendeeID,
+        _firstName = firstName,
+        _lastName = lastName,
+        _position = position,
+        _generalManager = generalManager,
+        _expeditureOrganization = expeditureOrganization,
+        _employeeEmail = employeeEmail,
+        _city = city,
+        _state = state,
+        _country = country,
         _phoneNumber = phoneNumber,
-        _email = email;
+        _notes = notes;
 
-  // "name" field.
-  String? _name;
-  String get name => _name ?? '';
-  set name(String? val) => _name = val;
-  bool hasName() => _name != null;
+  // "attendeeID" field.
+  String? _attendeeID;
+  String get attendeeID => _attendeeID ?? '';
+  set attendeeID(String? val) => _attendeeID = val;
+  bool hasAttendeeID() => _attendeeID != null;
 
-  // "title" field.
-  String? _title;
-  String get title => _title ?? '';
-  set title(String? val) => _title = val;
-  bool hasTitle() => _title != null;
+  // "FirstName" field.
+  String? _firstName;
+  String get firstName => _firstName ?? '';
+  set firstName(String? val) => _firstName = val;
+  bool hasFirstName() => _firstName != null;
 
-  // "businessUnit" field.
-  String? _businessUnit;
-  String get businessUnit => _businessUnit ?? '';
-  set businessUnit(String? val) => _businessUnit = val;
-  bool hasBusinessUnit() => _businessUnit != null;
+  // "LastName" field.
+  String? _lastName;
+  String get lastName => _lastName ?? '';
+  set lastName(String? val) => _lastName = val;
+  bool hasLastName() => _lastName != null;
 
-  // "location" field.
-  String? _location;
-  String get location => _location ?? '';
-  set location(String? val) => _location = val;
-  bool hasLocation() => _location != null;
+  // "position" field.
+  String? _position;
+  String get position => _position ?? '';
+  set position(String? val) => _position = val;
+  bool hasPosition() => _position != null;
 
-  // "notes" field.
-  String? _notes;
-  String get notes => _notes ?? '';
-  set notes(String? val) => _notes = val;
-  bool hasNotes() => _notes != null;
+  // "GeneralManager" field.
+  String? _generalManager;
+  String get generalManager => _generalManager ?? '';
+  set generalManager(String? val) => _generalManager = val;
+  bool hasGeneralManager() => _generalManager != null;
 
-  // "phone_number" field.
+  // "expediture_organization" field.
+  String? _expeditureOrganization;
+  String get expeditureOrganization => _expeditureOrganization ?? '';
+  set expeditureOrganization(String? val) => _expeditureOrganization = val;
+  bool hasExpeditureOrganization() => _expeditureOrganization != null;
+
+  // "EmployeeEmail" field.
+  String? _employeeEmail;
+  String get employeeEmail => _employeeEmail ?? '';
+  set employeeEmail(String? val) => _employeeEmail = val;
+  bool hasEmployeeEmail() => _employeeEmail != null;
+
+  // "City" field.
+  String? _city;
+  String get city => _city ?? '';
+  set city(String? val) => _city = val;
+  bool hasCity() => _city != null;
+
+  // "State" field.
+  String? _state;
+  String get state => _state ?? '';
+  set state(String? val) => _state = val;
+  bool hasState() => _state != null;
+
+  // "Country" field.
+  String? _country;
+  String get country => _country ?? '';
+  set country(String? val) => _country = val;
+  bool hasCountry() => _country != null;
+
+  // "PhoneNumber" field.
   String? _phoneNumber;
   String get phoneNumber => _phoneNumber ?? '';
   set phoneNumber(String? val) => _phoneNumber = val;
   bool hasPhoneNumber() => _phoneNumber != null;
 
-  // "email" field.
-  String? _email;
-  String get email => _email ?? '';
-  set email(String? val) => _email = val;
-  bool hasEmail() => _email != null;
+  // "Notes" field.
+  String? _notes;
+  String get notes => _notes ?? '';
+  set notes(String? val) => _notes = val;
+  bool hasNotes() => _notes != null;
 
   static ContactStruct fromMap(Map<String, dynamic> data) => ContactStruct(
-        name: data['name'] as String?,
-        title: data['title'] as String?,
-        businessUnit: data['businessUnit'] as String?,
-        location: data['location'] as String?,
-        notes: data['notes'] as String?,
-        phoneNumber: data['phone_number'] as String?,
-        email: data['email'] as String?,
+        attendeeID: data['attendeeID'] as String?,
+        firstName: data['FirstName'] as String?,
+        lastName: data['LastName'] as String?,
+        position: data['position'] as String?,
+        generalManager: data['GeneralManager'] as String?,
+        expeditureOrganization: data['expediture_organization'] as String?,
+        employeeEmail: data['EmployeeEmail'] as String?,
+        city: data['City'] as String?,
+        state: data['State'] as String?,
+        country: data['Country'] as String?,
+        phoneNumber: data['PhoneNumber'] as String?,
+        notes: data['Notes'] as String?,
       );
 
   static ContactStruct? maybeFromMap(dynamic data) =>
       data is Map ? ContactStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'name': _name,
-        'title': _title,
-        'businessUnit': _businessUnit,
-        'location': _location,
-        'notes': _notes,
-        'phone_number': _phoneNumber,
-        'email': _email,
+        'attendeeID': _attendeeID,
+        'FirstName': _firstName,
+        'LastName': _lastName,
+        'position': _position,
+        'GeneralManager': _generalManager,
+        'expediture_organization': _expeditureOrganization,
+        'EmployeeEmail': _employeeEmail,
+        'City': _city,
+        'State': _state,
+        'Country': _country,
+        'PhoneNumber': _phoneNumber,
+        'Notes': _notes,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'name': serializeParam(
-          _name,
+        'attendeeID': serializeParam(
+          _attendeeID,
           ParamType.String,
         ),
-        'title': serializeParam(
-          _title,
+        'FirstName': serializeParam(
+          _firstName,
           ParamType.String,
         ),
-        'businessUnit': serializeParam(
-          _businessUnit,
+        'LastName': serializeParam(
+          _lastName,
           ParamType.String,
         ),
-        'location': serializeParam(
-          _location,
+        'position': serializeParam(
+          _position,
           ParamType.String,
         ),
-        'notes': serializeParam(
-          _notes,
+        'GeneralManager': serializeParam(
+          _generalManager,
           ParamType.String,
         ),
-        'phone_number': serializeParam(
+        'expediture_organization': serializeParam(
+          _expeditureOrganization,
+          ParamType.String,
+        ),
+        'EmployeeEmail': serializeParam(
+          _employeeEmail,
+          ParamType.String,
+        ),
+        'City': serializeParam(
+          _city,
+          ParamType.String,
+        ),
+        'State': serializeParam(
+          _state,
+          ParamType.String,
+        ),
+        'Country': serializeParam(
+          _country,
+          ParamType.String,
+        ),
+        'PhoneNumber': serializeParam(
           _phoneNumber,
           ParamType.String,
         ),
-        'email': serializeParam(
-          _email,
+        'Notes': serializeParam(
+          _notes,
           ParamType.String,
         ),
       }.withoutNulls;
 
   static ContactStruct fromSerializableMap(Map<String, dynamic> data) =>
       ContactStruct(
-        name: deserializeParam(
-          data['name'],
+        attendeeID: deserializeParam(
+          data['attendeeID'],
           ParamType.String,
           false,
         ),
-        title: deserializeParam(
-          data['title'],
+        firstName: deserializeParam(
+          data['FirstName'],
           ParamType.String,
           false,
         ),
-        businessUnit: deserializeParam(
-          data['businessUnit'],
+        lastName: deserializeParam(
+          data['LastName'],
           ParamType.String,
           false,
         ),
-        location: deserializeParam(
-          data['location'],
+        position: deserializeParam(
+          data['position'],
           ParamType.String,
           false,
         ),
-        notes: deserializeParam(
-          data['notes'],
+        generalManager: deserializeParam(
+          data['GeneralManager'],
+          ParamType.String,
+          false,
+        ),
+        expeditureOrganization: deserializeParam(
+          data['expediture_organization'],
+          ParamType.String,
+          false,
+        ),
+        employeeEmail: deserializeParam(
+          data['EmployeeEmail'],
+          ParamType.String,
+          false,
+        ),
+        city: deserializeParam(
+          data['City'],
+          ParamType.String,
+          false,
+        ),
+        state: deserializeParam(
+          data['State'],
+          ParamType.String,
+          false,
+        ),
+        country: deserializeParam(
+          data['Country'],
           ParamType.String,
           false,
         ),
         phoneNumber: deserializeParam(
-          data['phone_number'],
+          data['PhoneNumber'],
           ParamType.String,
           false,
         ),
-        email: deserializeParam(
-          data['email'],
+        notes: deserializeParam(
+          data['Notes'],
           ParamType.String,
           false,
         ),
@@ -164,35 +259,62 @@ class ContactStruct extends BaseStruct {
   @override
   bool operator ==(Object other) {
     return other is ContactStruct &&
-        name == other.name &&
-        title == other.title &&
-        businessUnit == other.businessUnit &&
-        location == other.location &&
-        notes == other.notes &&
+        attendeeID == other.attendeeID &&
+        firstName == other.firstName &&
+        lastName == other.lastName &&
+        position == other.position &&
+        generalManager == other.generalManager &&
+        expeditureOrganization == other.expeditureOrganization &&
+        employeeEmail == other.employeeEmail &&
+        city == other.city &&
+        state == other.state &&
+        country == other.country &&
         phoneNumber == other.phoneNumber &&
-        email == other.email;
+        notes == other.notes;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([name, title, businessUnit, location, notes, phoneNumber, email]);
+  int get hashCode => const ListEquality().hash([
+        attendeeID,
+        firstName,
+        lastName,
+        position,
+        generalManager,
+        expeditureOrganization,
+        employeeEmail,
+        city,
+        state,
+        country,
+        phoneNumber,
+        notes
+      ]);
 }
 
 ContactStruct createContactStruct({
-  String? name,
-  String? title,
-  String? businessUnit,
-  String? location,
-  String? notes,
+  String? attendeeID,
+  String? firstName,
+  String? lastName,
+  String? position,
+  String? generalManager,
+  String? expeditureOrganization,
+  String? employeeEmail,
+  String? city,
+  String? state,
+  String? country,
   String? phoneNumber,
-  String? email,
+  String? notes,
 }) =>
     ContactStruct(
-      name: name,
-      title: title,
-      businessUnit: businessUnit,
-      location: location,
-      notes: notes,
+      attendeeID: attendeeID,
+      firstName: firstName,
+      lastName: lastName,
+      position: position,
+      generalManager: generalManager,
+      expeditureOrganization: expeditureOrganization,
+      employeeEmail: employeeEmail,
+      city: city,
+      state: state,
+      country: country,
       phoneNumber: phoneNumber,
-      email: email,
+      notes: notes,
     );
